@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // Login the user and get their info from the Parse database
     @IBAction func onLogin(_ sender: Any) {
         let username = usernameTextField.text!
         let password = passwordTextField.text!
@@ -33,6 +34,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // Singup the user and save their info to the Parse database
     @IBAction func onSignup(_ sender: Any) {
         let user = PFUser()
         user.username = usernameTextField.text
