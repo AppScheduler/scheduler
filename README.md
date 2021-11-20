@@ -25,15 +25,15 @@ It's an app that creates a map for you to your classes based on the schedule tha
 **Required Must-have Stories**
 
 - [x] user creates account/log in to account
-- [  ] user uploads schedule 
-- [  ] view full schedule/make changes to schedule
-- [  ] map of the schedule w/ directions 
+- [ ] user uploads schedule 
+- [ ] view full schedule/make changes to schedule
+- [ ] map of the schedule w/ directions 
 
 **Optional Nice-to-have Stories**
 
-- [  ]  settings
-- [  ]  multiple schedules
-- [  ]  linking google calendar schedule
+- [ ]  settings
+- [ ]  multiple schedules
+- [ ]  linking google calendar schedule
 
 ### 2. Screen Archetypes
 
@@ -139,3 +139,11 @@ UMD Maps
 | POST     | /calendars/calendarId/events | creates an event   |
 | PUT     | /calendars/calendarId/events/eventId | updates an event     |
 
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='login_demo.gif' title='Login Video Walkthrough' width='' alt='Login Video Walkthrough' /><br>
+
+---
