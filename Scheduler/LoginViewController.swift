@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     }
     
     // Login the user and get their info from the Parse database
-    @IBAction func onLogin(_ sender: Any) { 
+    @IBAction func onLogin(_ sender: Any) {
         let username = usernameTextField.text!
         let password = passwordTextField.text!
         

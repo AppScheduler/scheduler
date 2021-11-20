@@ -24,16 +24,16 @@ It's an app that creates a map for you to your classes based on the schedule tha
 
 **Required Must-have Stories**
 
-* user creates account/log in to account
-* user uploads schedule 
-* view full schedule/make changes to schedule
-* map of the schedule w/ directions 
+- [x] user creates account/log in to account
+- [  ] user uploads schedule 
+- [  ] view full schedule/make changes to schedule
+- [  ] map of the schedule w/ directions 
 
 **Optional Nice-to-have Stories**
 
-* settings
-* multiple schedules
-* linking google calendar schedule
+- [  ]  settings
+- [  ]  multiple schedules
+- [  ]  linking google calendar schedule
 
 ### 2. Screen Archetypes
 
