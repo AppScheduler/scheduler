@@ -7,5 +7,6 @@ target 'Scheduler' do
 
   # Pods for Scheduler
   pod 'Parse'
+  pod 'FSCalendar'
 
 end

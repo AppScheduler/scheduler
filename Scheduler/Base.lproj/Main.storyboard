@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +27,7 @@
                                 <rect key="frame" x="42" y="346" width="306" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwE-Py-c4M" userLabel="Login Button">
                                 <rect key="frame" x="42" y="457" width="306" height="46"/>
@@ -71,24 +72,43 @@
         <!--Schedule View Controller-->
         <scene sceneID="6az-Y0-tFh">
             <objects>
-                <viewController id="Rfy-yK-CCm" customClass="ScheduleViewController" customModule="Scheduler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Rfy-yK-CCm" customClass="ScheduleViewController" customModule="Scheduler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6fu-D8-P4M">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsk-SZ-CKg" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="56" width="390" height="754"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vzj-8P-Y88"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Nsk-SZ-CKg" firstAttribute="bottom" secondItem="vzj-8P-Y88" secondAttribute="bottom" id="98c-6D-im3"/>
+                            <constraint firstItem="Nsk-SZ-CKg" firstAttribute="trailing" secondItem="vzj-8P-Y88" secondAttribute="trailing" id="RVd-o3-X0y"/>
+                            <constraint firstItem="Nsk-SZ-CKg" firstAttribute="top" secondItem="6fu-D8-P4M" secondAttribute="topMargin" constant="-32" id="Zjr-a9-bj5"/>
+                            <constraint firstItem="Nsk-SZ-CKg" firstAttribute="leading" secondItem="vzj-8P-Y88" secondAttribute="leading" id="m4A-0Y-9Ap"/>
+                            <constraint firstItem="Nsk-SZ-CKg" firstAttribute="trailing" secondItem="vzj-8P-Y88" secondAttribute="trailing" id="n8h-jv-rUQ"/>
+                            <constraint firstItem="Nsk-SZ-CKg" firstAttribute="bottom" secondItem="vzj-8P-Y88" secondAttribute="bottom" id="xqu-EQ-5tO"/>
+                            <constraint firstItem="Nsk-SZ-CKg" firstAttribute="leading" secondItem="6fu-D8-P4M" secondAttribute="leading" id="zsQ-Su-vad"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JMW-gU-NbO"/>
+                    <connections>
+                        <outlet property="calendar" destination="Nsk-SZ-CKg" id="xmN-Of-5eA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3t-Zz-aLa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="832"/>
+            <point key="canvasLocation" x="700" y="831.75355450236964"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xWH-fd-QlP">
             <objects>
                 <navigationController modalPresentationStyle="fullScreen" id="R1i-PQ-tpu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="u09-VQ-cgm">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
