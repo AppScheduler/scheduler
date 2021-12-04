@@ -1,32 +1,40 @@
 //
-//  ScheduleViewController.swift
+//  AddEventViewController.swift
 //  Scheduler
 //
-//  Created by Asad Rizvi on 11/19/21.
+//  Created by Frank Choukouali on 12/4/21.
 //
 
 import UIKit
-import FSCalendar
+import CoreLocation
 
-class ScheduleViewController: UIViewController, FSCalendarDelegate {
+class AddEventViewController: UIViewController {
 
-    @IBOutlet var calendar: FSCalendar!
+    @IBOutlet weak var eventName: UITextField!
+    @IBOutlet weak var address: UITextField!
+    @IBOutlet weak var time: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        calendar.delegate = self
+
+        // Do any additional setup after loading the view.
     }
     
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE MM-dd-YYYY"
-        let dateString = formatter.string(from: date)
-        let myAlert = UIAlertController(title: "Event ", message: dateString, preferredStyle: .alert)
-        let dismiss = UIAlertAction(title: "Dismiss", style: .cancel)
-        myAlert.addAction(dismiss)
-        present(myAlert, animated: true, completion: nil)
-        print("\(dateString)");
+    @IBAction func AddEvent(_ sender: Any) {
+        let eventName = eventName.text!
+        let address = address.text!
+        let time = time.text!
+        print("Lat: \(address), Lon: \(eventName)")
+        var geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address) {
+            placemarks, error in
+            let placemark = placemarks?.first
+            let lat = placemark?.location?.coordinate.latitude
+            let lon = placemark?.location?.coordinate.longitude
+            print("Lat: \(lat), Lon: \(lon)")
+            self.openGoogleMapDirections(latitude: lat!, longitude: lon!);
+        }
     }
-    
     func openGoogleMapDirections(latitude:Double, longitude: Double) {
            // let latitude = locationManager.location.latitude
            // let longitude = locationManager.location.longitude
@@ -42,6 +50,8 @@ class ScheduleViewController: UIViewController, FSCalendarDelegate {
                 UIApplication.shared.open(urlBrowser!, options: [:], completionHandler: nil)
             }
         }
+    
+
     /*
     // MARK: - Navigation
 
