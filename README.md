@@ -113,6 +113,6 @@ Events
 
 Here's a walkthrough of implemented user stories:
 
-<img src='login_demo.gif' title='Login Video Walkthrough' width='' alt='Login Video Walkthrough' /><br>
+<img src='final_demo.gif' title='Final Video Walkthrough' width='' alt='Final Video Walkthrough' /><br>
 
 ---
