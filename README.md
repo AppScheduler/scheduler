@@ -25,15 +25,15 @@ It's an app that creates a map for you to your classes based on the schedule tha
 **Required Must-have Stories**
 
 - [x] user creates account/log in to account
-- [ ] user uploads schedule 
-- [ ] view full schedule/make changes to schedule
-- [ ] map of the schedule w/ directions 
+- [x] user uploads schedule 
+- [x] view full schedule/make changes to schedule
+- [x] map of the schedule w/ directions 
 
 **Optional Nice-to-have Stories**
 
 - [ ]  settings
 - [ ]  multiple schedules
-- [ ]  linking google calendar schedule
+- [x]  linking google maps to schedule
 
 ### 2. Screen Archetypes
 
@@ -79,23 +79,13 @@ User
 | password     | String     | user password     |
 | uid     | number     | user unique identifier    |
 
-Calendar
+Events
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| id     | String     |  unique id for an event     |
-| event_name     | String     | user event     |
-| start_time     | datetime     | time format(MMddYYY HH:MM)    |
-| end_time     | datetime     | time format(MMddYYY HH:MM)    |
-|destination     | String     | User destination     |
-|current_location    | String     | User current location     |
+| name     | String     |  unique acronym for UMD building     |
+| address     | String     |  UMD building address   |
+| time     | number     |  UMD class time  |
 
-UMD Maps
-| Property | Type | Description |
-| -------- | -------- | -------- |
-| acr     | String     |  unique acronym for UMD building     |
-| name     | String     |  UMD building name   |
-| lat     | number     |  UMD building Latitude coordinate   |
-| long     | number     |  UMD building Longitude coordinate   |
 
 ### Networking
 #### List of network requests by screen
@@ -118,27 +108,6 @@ UMD Maps
 - Profile Screen
     - (Read/GET) User can see their information
     - (Update/PUT) User can update their information
-
-#### Existing API Endpoints
-##### Google Maps API
-- Base URL: https://maps.googleapis.com/maps/api/
-
-| HTTP Verb | Endpoint | Description |
-| -------- | -------- | -------- |
-| GET     | place/findplacefromtext/json | search for place information     |
-| GET     | place/details/json | details about place id    |
-| GET     | distancematrix/json | travel distance and time between two points     |
-| GET     | geocode/json | geocode a text address into longitude and latitude     |
-
-##### Google Calender API
-- Base url: https://www.googleapis.com/calendar/v3
-
-| HTTP Verb | Endpoint | Description |
-| -------- | -------- | -------- |
-| GET     | /calendars/calendarId/events/eventId| returns an event     |
-| POST     | /calendars/calendarId/events | creates an event   |
-| PUT     | /calendars/calendarId/events/eventId | updates an event     |
-
 
 ## Video Walkthrough
 

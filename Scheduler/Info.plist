@@ -59,6 +59,12 @@
 	<array>
 		<string>comgooglemaps</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Usage Description</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Usage Description</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Usage Description</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -8,44 +8,128 @@
 import UIKit
 import Parse
 import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
     var events = [PFObject]()
     
+    private var locationManager: CLLocationManager!
+    private var currentLocation: CLLocation?
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set initial location
-        let location = CLLocation(latitude: 38.98, longitude: -76.94)
-        mapView.centerToLocation(location)
+        // Setup map current location
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+
+        // Ask user location permission
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+        }
         
-        let coordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 38.98, longitude: -76.94), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        // Set initial location
+        let lat = (locationManager.location?.coordinate.latitude)!
+        let lon = (locationManager.location?.coordinate.longitude)!
+        
+        let coordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: lon), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         mapView.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: coordinateRegion), animated: true)
-        //mapView.setCameraZoomRange(MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000), animated: true)
-    }
-    
-    /*override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
+        // Gets events from database
         let query = PFQuery(className:"Events")
-        
-        // Get author and comments objects
-        query.includeKeys(["events"])
-        
-        // Get previous 20 posts
-        query.limit = 20
-        
-        // Get stored posts list
+        query.includeKeys(["user", "name", "address", "time", "latitude", "longitude"])
         query.findObjectsInBackground { (events, error) in
             if events != nil {
                 self.events = events!
             } else {
-                print("Error: \(error?.localizedDescription)")
+                print("Error: \(error)")
             }
+        }
+        
+        // Adds annotations to map
+        for event in events {
+            let latitude = (event["latitude"] as? Double)!
+            let longitude = (event["longitude"] as? Double)!
+            
+            let eventAnnotation = Event(name: event["name"] as? String,
+                              address: event["address"] as? String,
+                              coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+
+            mapView.addAnnotation(eventAnnotation)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Gets events from database
+        let query = PFQuery(className:"Events")
+        query.includeKeys(["user", "name", "address", "time", "latitude", "longitude"])
+        query.findObjectsInBackground { (events, error) in
+            if events != nil {
+                self.events = events!
+            } else {
+                print("Error: \(error)")
+            }
+        }
+        
+        // Adds annotations to map
+        for event in events {
+            let latitude = (event["latitude"] as? Double)!
+            let longitude = (event["longitude"] as? Double)!
+            
+            let eventAnnotation = Event(name: event["name"] as? String,
+                              address: event["address"] as? String,
+                              coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+            
+            mapView.addAnnotation(eventAnnotation)
+        }
+    }
+    
+    // Maintain user location
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+      defer { currentLocation = locations.last }
+
+      if currentLocation == nil {
+          if let userLocation = locations.last {
+              let viewRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 2000, longitudinalMeters: 2000)
+              mapView.setRegion(viewRegion, animated: false)
+          }
+      }
+  }
+    
+    /*override func loadView() {
+        super.loadView()
+        
+        // Gets events from database
+        let query = PFQuery(className:"Events")
+        query.includeKeys(["user", "name", "address", "time", "latitude", "longitude"])
+        query.findObjectsInBackground { (events, error) in
+            if events != nil {
+                self.events = events!
+            } else {
+                print("Error: \(error)")
+            }
+        }
+        
+        // Adds annotations to map
+        for event in events {
+            let latitude = (event["latitude"] as? Double)!
+            let longitude = (event["longitude"] as? Double)!
+            
+            let event = Event(name: event["name"] as? String,
+                              address: event["address"] as? String,
+                              coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+            
+            mapView.addAnnotation(event)
         }
     }*/
     

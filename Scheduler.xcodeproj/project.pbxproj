@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0162F257275BD3D800936292 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0162F256275BD3D800936292 /* AddEventViewController.swift */; };
+		24185AB82764116D00AC2FC3 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24185AB72764116D00AC2FC3 /* EventsListViewController.swift */; };
+		24185ABB276411E800AC2FC3 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24185ABA276411E800AC2FC3 /* EventCell.swift */; };
+		24185ABF2764211600AC2FC3 /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24185ABE2764211600AC2FC3 /* EventAnnotation.swift */; };
 		243E78CD2747ED4E00932952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E78CC2747ED4E00932952 /* AppDelegate.swift */; };
 		243E78CF2747ED4E00932952 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243E78CE2747ED4E00932952 /* SceneDelegate.swift */; };
 		243E78D42747ED4E00932952 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243E78D22747ED4E00932952 /* Main.storyboard */; };
@@ -21,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		0162F256275BD3D800936292 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		24185AB72764116D00AC2FC3 /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
+		24185ABA276411E800AC2FC3 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		24185ABE2764211600AC2FC3 /* EventAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAnnotation.swift; sourceTree = "<group>"; };
 		243E78C92747ED4E00932952 /* Scheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		243E78CC2747ED4E00932952 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		243E78CE2747ED4E00932952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +88,10 @@
 				24A0F6852747EFFB00B6F233 /* LoginViewController.swift */,
 				0162F256275BD3D800936292 /* AddEventViewController.swift */,
 				24A0F68C2747FA5D00B6F233 /* MapViewController.swift */,
+				24185ABE2764211600AC2FC3 /* EventAnnotation.swift */,
 				24A0F6892747F9F500B6F233 /* ScheduleViewController.swift */,
+				24185AB72764116D00AC2FC3 /* EventsListViewController.swift */,
+				24185ABA276411E800AC2FC3 /* EventCell.swift */,
 				243E78D22747ED4E00932952 /* Main.storyboard */,
 				243E78D52747ED4F00932952 /* Assets.xcassets */,
 				243E78D72747ED4F00932952 /* LaunchScreen.storyboard */,
@@ -216,9 +225,12 @@
 			files = (
 				24A0F6862747EFFB00B6F233 /* LoginViewController.swift in Sources */,
 				0162F257275BD3D800936292 /* AddEventViewController.swift in Sources */,
+				24185ABF2764211600AC2FC3 /* EventAnnotation.swift in Sources */,
 				243E78CD2747ED4E00932952 /* AppDelegate.swift in Sources */,
 				243E78CF2747ED4E00932952 /* SceneDelegate.swift in Sources */,
+				24185ABB276411E800AC2FC3 /* EventCell.swift in Sources */,
 				24A0F68D2747FA5D00B6F233 /* MapViewController.swift in Sources */,
+				24185AB82764116D00AC2FC3 /* EventsListViewController.swift in Sources */,
 				24A0F68A2747F9F500B6F233 /* ScheduleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
