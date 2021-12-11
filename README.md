@@ -26,7 +26,7 @@ It's an app that creates a map for you to your classes based on the schedule tha
 
 - [x] user creates account/log in to account
 - [x] user uploads schedule 
-- [x] view full schedule/make changes to schedule
+- [x] view full schedule
 - [x] map of the schedule w/ directions 
 
 **Optional Nice-to-have Stories**
